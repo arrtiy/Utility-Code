@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>视频加速</title>
+  <style>
+    body {
+      text-align: center;
+    }
+
+    video {
+      width: 600px;
+    }
+
+    select {
+      padding: 2px 0;
+      margin-left: 10px;
+    }
+
+    dt,
+    dd {
+      display: inline-block;
+    }
+
+    dd {
+      margin-inline-start: 0;
+    }
+
+    #curSpeed {
+      width: 30px;
+      color: red;
+    }
+
+  </style>
+</head>
+
+<body>
+  <video src="" autoplay controls id="video"></video>
+  <div>
+    <dt>当前播放速率：</dt>
+    <dd id="curSpeed">1.0</dd>
+    <dd>
+      <select name="" id="" onChange="setPlaySpeed(this.value)">
+        <option disabled selected value="1">default</option>
+        <option value="0.5">0.5</option>
+        <option value="1.0">1.0</option>
+        <option value="1.25">1.25</option>
+        <option value="1.5">1.5</option>
+        <option value="2.0">2.0</option>
+      </select>
+    </dd>
+  </div>
+  <script>
+    const SRC =
+      "http://mpvideo.qpic.cn/0bf2jaaaeaaasiakkkk2hjpvasgdajeaaaqa.f10002.mp4?dis_k=5c8507a446c009f3ca703c4fc87078f0&dis_t=1600004692"
+
+    var myVideo = document.getElementById("video");
+
+    var curSpeed = document.getElementById("curSpeed");
+
+    myVideo.src = SRC
+
+    function setPlaySpeed(val) {
+      myVideo.playbackRate = val; //设定新的播放速度
+      curSpeed.innerText = val
+    }
+
+  </script>
+</body>
+
+</html>
